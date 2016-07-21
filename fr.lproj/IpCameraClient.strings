@@ -1,0 +1,237 @@
+/*
+ IpCameraClient.strings
+ IpCameraClient
+ 
+ Created by jiyonglong on 12-5-2.
+ Copyright 2012 __MyCompanyName__. All rights reserved.
+ */
+
+IPCamera = "Caméra IP";
+AddCamera = "Ajouter une caméra";
+EditCamera = "Modifier une caméra";
+CameraName = "Nom de la caméra";
+IpAddr = "Adresse IP";
+Port = "Port";
+User = "Nom d’utilisateur";
+Pwd = "Mot de passe";
+OK = "OK";
+Cancel = "Annuler";
+SearchCamera = "Rechercher une caméra";
+Back = "Précédent";
+Hide = "Cacher";
+Connecting = "Connexion...";
+Options = "Options";
+Livestream = "Diffusion en continu en direct";
+Edit = "Modifier";
+Setting = "Réglages de la caméra";
+Delete = "Effacer";
+DeviceID = "Nom de l’appareil :";
+CameraType = "Type de caméra :";
+PPPStatus = "État :";
+CameraID = "Identifiant de caméra";
+InputCameraName = "Entrer le nom de la caméra";
+InputCameraID = "Entrer l’identifiant de la caméra";
+InputUserName = "Entrer le nom d’utilisateur";
+InputPassword = "Entrer le mot de passe";
+CameraInfo = "Information sur la caméra";
+Done =  "Terminé";
+PPPPModeP2P = "Connexion p2p";
+PPPPModeRelay = "Relais p2p";
+PPPPModeUnknown = "Mode inconnu";
+PPPPStatusUnknown = "État inconnu";
+PPPPStatusConnecting = "Connexion...";
+PPPPStatusInitialing = "Initialisation";
+PPPPStatusOnline = "En ligne";
+PPPPStatusConnectFailed = "Échec de connexion";
+PPPPStatusDisconnected = "Déconnecté";
+PPPPStatusInvalidID = "Identifiant invalide";
+PleaseInputCamreraName = "Veuillez entrer le nom de la caméra";
+PleaseInputCameraID = "Veuillez entrer l’identifiant de la caméra";
+PleaseInputUserName = "Veuillez entrer le nom d’utilisateur";
+CameraIsNotOnline = "Caméra hors ligne";
+Version = "Version";
+DefaultVideoParams = "Par défaut";
+UnknownResolution = "Résolution inconnue";
+PPPPMode = "Mode :";
+PPPPStatusConnectTimeout = "Délai d’attente de connexion";
+RelayModeTimeout = "Délai d’inactivité du mode Relais :";
+StrSeconds = "Secondes";
+ScanDisplayMessage = "Veuillez vous assurer que le code QR est dans le cadre carré";
+ScanQRCode = "Lecture de code QR";
+ClickScan = "Lecture";
+LiveView = "Vue en direct";
+Network = "Réseau";
+WifiSetting = "Réglages WiFi";
+WifiList = "Choisir un réseau WIFI";
+EnterPwd = "Entrer le mot de passe";
+Loading = "Chargement...";
+WillSet = "Réglage accepté";
+NotSetting = "Aucun réglage";
+About = "À propos";
+UserSetting = "Paramètres utilisateur";
+TakePictureSuccess = "Réussite de capture d’image";
+UserSetting = "Paramètres utilisateur";
+AlarmSetting = "Paramètres d’alarme";
+ClockSetting = "Paramètres de l’horloge";
+UserName = "Nom d’utilisateur";
+datetimeDeviceTime = "Réglage de l’heure";
+datetimeDeviceTiming = "Mise à jour automatique de l’heure";
+datetimeDeviceTimingServer = "Serveur NTP";
+datetimeDeviceTimezone = "Fuseau horaire";
+datetimeDeviceTimeLocal = "Calibration de l’heure locale";
+alarmMotionEnable = "Détection de mouvement activée";
+alarmMotionLevel = "Niveau de détection de mouvement";
+alarmExtern = "Entrée d’alarme";
+alarmExternLevel = "Niveau de déclenchement";
+alarmMotionPreset = "Liaison de mouvement préréglée";
+alarmMotionIO = "Liaison entrée-sortie";
+alarmMotionIOLevel = "Niveau de sortie";
+alarmMail = "Notification d’alarme par courriel ";
+alarmPicEnable = "Téléchargement d’image au déclenchement d’alarme";
+alarmPicTimer = "Intervalle de téléchargement d’image";
+
+alarm_text_a1 = "Élevé";
+alarm_text_a2 = "Faible";
+
+
+datetimeZone0 = "(GMT -11:00) Îles Midway, Samoa";
+datetimeZone1 = "(GMT -10:00) Hawaï";
+datetimeZone2 = "(GMT -09:00) Alaska";
+datetimeZone3 = "(GMT -08:00) Heure normale du Pacifique (É.-U. et Canada)";
+datetimeZone4 = "(GMT -07:00) Heure normale des Rocheuses (É.-U. et Canada)";
+datetimeZone5 = "(GMT -06:00) Heure normale du Centre (É.-U. et Canada), Mexico";
+datetimeZone6 = "(GMT -05:00) Heure normale de l’Est (É.-U. et Canada), Lima, Bogotá";
+datetimeZone7 = "(GMT -04:00) Heure normale de l’Atlantique (Canada), San Diego, La Paz";
+datetimeZone8 = "(GMT -03:30) Terre-Neuve";
+datetimeZone9 = "(GMT -03:00) Brasilia, Buenos Aires, Georgetown";
+datetimeZone10 = "(GMT -02:00) Mi-Atlantique ";
+datetimeZone11 = "(GMT -01:00) Îles du Cap-Vert";
+datetimeZone12 = "(GMT) GMT; Londres, Lisbonne, Casablanca";
+datetimeZone13 = "(GMT +01:00) Bruxelles, Paris, Berlin, Rome, Madrid, Stockholm, Belgrade, Prague";
+datetimeZone14 = "(GMT +02:00) Athènes, Jérusalem, Caire, Helsinki";
+datetimeZone15 = "(GMT +03:00) Nairobi, Riyad, Moscou";
+datetimeZone16 = "(GMT +03:30) Téhéran";
+datetimeZone17 = "(GMT +04:00) Baku, Tbilissi, Abu Dhabi, Mascate";
+datetimeZone18 = "(GMT +04:30) Kaboul";
+datetimeZone19 = "(GMT +05:00) Islamabad, Karachi, Tadjikistan";
+datetimeZone20 = "(GMT +05:30) Calcutta, Mumbai, Madras, New Delhi";
+datetimeZone21 = "(GMT +06:00) Almaty, Novosibirsk, Aspen Outanane, Dahl";
+datetimeZone22 = "(GMT +07:00) Bangkok, Hanoï, Jakarta";
+datetimeZone23 = "(GMT +08:00) Beijing, Singapour, Taipei";
+datetimeZone24 = "(GMT +09:00) Séoul, Yakutsk, Tokyo";
+datetimeZone25 = "(GMT +09:30) Darwin ";
+datetimeZone26 = "(GMT +10:00) Guam, Melbourne, Sydney, Port Moresby, Vladivostok";
+datetimeZone27 = "(GMT +11:00) Magadan, Îles Salomon, Nouvelle-Calédonie";
+datetimeZone28 = "(GMT +12:00) Auckland, Wellington, Fiji ";
+
+MotionLevelHigh="Élevé";
+MotionLevelMiddle="Moyen";
+MotionLevelLow="Bas";
+DropListMotionLevel="Niveau de sensibilité";
+DropListTriggerLevel="Niveau de déclenchement";
+DropListPreset="Préréglé";
+DropListOutputLevel="Niveau de sortie";
+DropListUploadInterval="Intervalle de téléchargement (secondes)";
+DropListTimeZone="Fuseau horaire";
+DropListNtpServer="Serveur NTP";
+
+LAN = "Réseau local";
+LANSearch = "Recherche de réseau local";
+Alarm = "Alarme";
+Picture = "Image";
+Record = "Vidéo";
+Local = "Local";
+Remote = "À distance";
+LocalPic = "Image locale";
+SavePictureSuccess = "Réussite de la sauvegarde d’image";
+
+Message= "Invite";
+DeletePicture = "Effacer l’image?";
+TouchAddCamera = "Toucher ici pour ajouter une caméra";
+
+FTPSetting = "Réglages FTP";
+FTPServer = "Serveur FTP";
+FTPUser = "Nom d’utilisateur";
+FTPPwd = "Mot de passe";
+FTPPort = "Port";
+FTPUploadInterval = "Intervalle de téléchargement";
+InputFtpServer = "Entrer le serveur FTP";
+InputFtpUser = "Entrer le nom d’utilisateur";
+InputFtpPwd = "Entrer le mot de passe";
+MailSetting = "Paramètres de courriel";
+MailSender = "Expéditeur";
+MailSmtpSvr = "Serveur SMTP";
+MailSmtpPort = "Port SMTP";
+MailAuth = "Autorisation";
+MailUser = "Nom d’utilisateur";
+MailPwd = "Mot de passe";
+MailRecv1 = "Destinataire 1";
+MailRecv2 = "Destinataire 2";
+MailRecv3 = "Destinataire 3";
+MailRecv4 = "Destinataire 4";
+InputMailSender = "Entrer la boîte aux lettres de l’expéditeur";
+InputMailServer = "Entrer le serveur SMTP";
+InputMailUser = "Entrer le nom d’utilisateur";
+InputMailPwd = "Entrer le mot de passe";
+InputMailRecv = "Entrer la boîte aux lettres du destinataire";
+alarmRecord = "Enregistrement de l’alarme sur carte TF";
+
+//行车记录仪 (Contrôlographe)
+login_id="Entrer le numéro d’identification";
+login_user="Entrer le nom d’utilisateur";
+login_pwd="Entrer le mot de passe";
+login_inputuser="Veuillez entrer le nom d’utilisateur";
+login_inputid="Veuillez entrer l’identifiant de l’appareil";
+login_title=" Contrôlographe";
+login_connect_status="Non connecté";
+login="Ouverture de session";
+runcar_title="Voir";
+runcar_mode_default="Mode par défaut";
+runcar_mode_preview="Précédent";
+runcar_mode_uplate="Mon dossier";
+runcar_sys_setting="Réglages système";
+runcar_entering_preview_mode="Passer en mode Aperçu";
+runcar_entering_uplate_mode="Passer en mode USB";
+runcar_phone_recordfile="Fichiers vidéo par téléphone";
+runcar_remote_downloadfile="Téléchargement de fichier à distance";
+runcar_remote_recordfile="Fichiers vidéo sur carte SD";
+runcar_select_search_date="Choisir une plage de recherche ";
+runcar_search_starttime="Heure de début";
+runcar_search_endtime="Heure de fin";
+runcar_search_all="Tout";
+
+
+
+runcar_outofmemory="Mémoire insuffisante";
+
+
+runcar_phonerecord="Enregistrement de vidéo par téléphone";
+runcar_loadingfile="Chargement du fichier...";
+runcar_selectall="Sélectionner tout";
+runcar_selectreverse="Inverser la sélection";
+runcar_remote_download="Téléchargement à distance";
+runcar_hasfileloading="Fichier déjà en cours de chargement";
+runcar_thefileloaded="Fichier déjà téléchargé";
+runcar_loaded="Téléchargé";
+
+
+
+PPPPStatusInvalidUserPwd="Nom d’utilisateur ou mot de passe invalide";
+play_stop_record_p="Veuillez cesser d’enregistrer";
+record_filename="Nom du fichier :";
+record_filetime="Durée d’enregistrement :";
+filesize="Taille du fichier : ";
+
+play_recording="Enregistrement...";
+selectAll="Sélectionner tout";
+reserveSelect="Inverser la sélection";
+
+
+play_getvideo="Acquisition de la vidéo...";
+play_getvideofailed="Échec de l’acquisition de la vidéo ";
+
+play_gomydocument="Veuillez utiliser en format vertical";
+
+initPicPrompt="Chargement de l’image...";
+
+
