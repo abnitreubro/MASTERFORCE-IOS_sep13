@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "Constant.h"
 
 
 @interface ShowImageViewController : UIViewController<UIScrollViewDelegate>

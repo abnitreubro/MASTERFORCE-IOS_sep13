@@ -9,9 +9,9 @@
             <connections>
                 <outlet property="LblProgress" destination="21" id="22"/>
                 <outlet property="bottomButtonView" destination="3KV-Oy-myc" id="JFO-sO-z83"/>
-                <outlet property="imgView" destination="3" id="57"/>
                 <outlet property="interfaceScrollView" destination="M4E-XB-dAR" id="4dA-M4-vvK"/>
                 <outlet property="labelRecording" destination="Rug-Z9-Ist" id="zEF-cI-wLy"/>
+                <outlet property="messageLabel" destination="hff-63-zZL" id="n3p-KK-ccS"/>
                 <outlet property="progressView" destination="26" id="28"/>
                 <outlet property="recordingButton" destination="1Tb-33-qkY" id="ekk-Fk-gs3"/>
                 <outlet property="timeoutLabel" destination="66" id="67"/>
@@ -24,48 +24,32 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-XB-dAR">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4E-XB-dAR">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="66">
-                            <rect key="frame" x="200" y="372" width="201" height="21"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                            <color key="textColor" red="0.95998216709999995" green="0.36283269620000003" blue="0.097984713929999995" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
                     <animations/>
-                    <constraints>
-                        <constraint firstItem="3" firstAttribute="top" secondItem="M4E-XB-dAR" secondAttribute="top" id="1il-W7-qZy"/>
-                        <constraint firstItem="66" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="CTv-r8-E2R"/>
-                        <constraint firstItem="3" firstAttribute="width" secondItem="M4E-XB-dAR" secondAttribute="width" id="PWI-NM-S37"/>
-                        <constraint firstItem="3" firstAttribute="leading" secondItem="M4E-XB-dAR" secondAttribute="leading" id="aV6-wt-Bqs"/>
-                        <constraint firstAttribute="trailing" secondItem="3" secondAttribute="trailing" id="gCF-4h-id6"/>
-                        <constraint firstItem="3" firstAttribute="height" secondItem="M4E-XB-dAR" secondAttribute="height" id="nBX-en-cR7"/>
-                        <constraint firstAttribute="bottom" secondItem="3" secondAttribute="bottom" id="sDn-1k-yU5"/>
-                    </constraints>
                 </scrollView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="66">
+                    <rect key="frame" x="199" y="290" width="201" height="21"/>
+                    <animations/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" red="0.95998216709999995" green="0.36283269620000003" blue="0.097984713929999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z49-SU-OvQ">
                     <rect key="frame" x="480" y="520" width="95" height="20"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDq-fw-oFR">
-                            <rect key="frame" x="0.0" y="0.0" width="37" height="20"/>
-                            <animations/>
-                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                            <color key="textColor" red="0.91622596150000002" green="0.1135506931" blue="0.18226475950000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rug-Z9-Ist">
                             <rect key="frame" x="38" y="0.0" width="48" height="20"/>
                             <animations/>
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDq-fw-oFR">
+                            <rect key="frame" x="0.0" y="0.0" width="37" height="20"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" red="0.91622596150000002" green="0.1135506931" blue="0.18226475950000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -154,9 +138,9 @@
                                         <constraint firstAttribute="height" constant="30" id="5lz-pX-9ic"/>
                                         <constraint firstAttribute="width" constant="30" id="khW-Tt-rVV"/>
                                     </constraints>
-                                    <state key="normal" image="Video_Start.png"/>
+                                    <state key="normal" image="Camera_NotClicked.png"/>
                                     <connections>
-                                        <action selector="recordingButtonAction:" destination="-1" eventType="touchUpInside" id="AfZ-bw-y9G"/>
+                                        <action selector="recordingButtonAction:" destination="-1" eventType="touchUpInside" id="dMq-DZ-7aS"/>
                                     </connections>
                                 </button>
                             </subviews>
@@ -218,20 +202,35 @@
                         <constraint firstAttribute="width" constant="20" id="vPF-tN-1UZ"/>
                     </constraints>
                 </activityIndicatorView>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hff-63-zZL">
+                    <rect key="frame" x="162" y="520" width="275" height="20"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="0ph-wo-I7Y"/>
+                        <constraint firstAttribute="width" constant="275" id="qWQ-Ra-s1L"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="26" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="04U-cM-JxV"/>
                 <constraint firstItem="3KV-Oy-myc" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="5ko-GW-fiO"/>
+                <constraint firstItem="M4E-XB-dAR" firstAttribute="height" secondItem="1" secondAttribute="height" id="60H-oX-T5M"/>
                 <constraint firstAttribute="trailing" secondItem="Z49-SU-OvQ" secondAttribute="trailing" constant="25" id="8Y1-Vy-8ut"/>
                 <constraint firstItem="M4E-XB-dAR" firstAttribute="width" secondItem="1" secondAttribute="width" id="DMF-0I-eIN"/>
                 <constraint firstAttribute="trailing" secondItem="M4E-XB-dAR" secondAttribute="trailing" id="H2U-2H-HP4"/>
+                <constraint firstItem="3KV-Oy-myc" firstAttribute="top" secondItem="hff-63-zZL" secondAttribute="bottom" constant="10" id="LOw-vp-JdO"/>
+                <constraint firstItem="66" firstAttribute="top" secondItem="26" secondAttribute="bottom" constant="-20" id="PTm-R5-URC"/>
+                <constraint firstItem="66" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="VdM-0n-I5X"/>
                 <constraint firstItem="26" firstAttribute="centerY" secondItem="1" secondAttribute="centerY" id="Vyb-LV-FB3"/>
                 <constraint firstAttribute="bottom" secondItem="3KV-Oy-myc" secondAttribute="bottom" id="YmV-x1-JCv"/>
+                <constraint firstItem="hff-63-zZL" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="Zgr-tb-ipH"/>
                 <constraint firstAttribute="bottom" secondItem="M4E-XB-dAR" secondAttribute="bottom" id="apa-AS-2ct"/>
                 <constraint firstItem="21" firstAttribute="top" secondItem="26" secondAttribute="bottom" constant="17" id="avg-lm-T8Z"/>
-                <constraint firstItem="66" firstAttribute="top" secondItem="21" secondAttribute="bottom" constant="17" id="cfe-ZU-Lky"/>
                 <constraint firstItem="21" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" id="cuI-Df-RTe"/>
                 <constraint firstAttribute="trailing" secondItem="3KV-Oy-myc" secondAttribute="trailing" id="jeX-6q-BhF"/>
                 <constraint firstItem="M4E-XB-dAR" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="txp-fX-ek0"/>
@@ -240,12 +239,20 @@
             </constraints>
             <point key="canvasLocation" x="323" y="348"/>
         </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8Gr-c4-O7Z">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <animations/>
+            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+            <nil key="highlightedColor"/>
+        </label>
     </objects>
     <resources>
+        <image name="Camera_NotClicked.png" width="44" height="43"/>
         <image name="LeftRotate.png" width="138" height="123"/>
         <image name="Plus 2.png" width="512" height="512"/>
         <image name="Square.png" width="153" height="154"/>
-        <image name="Video_Start.png" width="44" height="43"/>
         <image name="minus 1.png" width="512" height="512"/>
         <image name="rightRotate.png" width="138" height="123"/>
     </resources>

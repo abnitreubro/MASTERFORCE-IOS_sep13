@@ -21,6 +21,7 @@
     BOOL isRecording;
     
 
+    __weak IBOutlet UILabel *mesageLabel;
     //video writing
     
     NSMutableArray *numberOfScreenshots;
@@ -38,6 +39,7 @@
     NSString * audioOrVideo;
     UIBarButtonItem * cameraBtn;
     
+    UIView * containerCiew;
     
     // new feature... extra step
     __weak IBOutlet UIButton *recordingButton;

@@ -21,6 +21,8 @@
     int currentTimeInSeconds;
     CGFloat scaleValue;
     UIImage *  imageCropped;
+    
+
 
 }
 
@@ -63,29 +65,31 @@ static NSData *_endMarkerData = nil;
     NSLog(@"Camera Detal is %@",self.folderName);
     
     
-    UIImage * cameraImage = [UIImage imageNamed:@"Camera_NotClicked"];
+    UIImage * cameraImage = [UIImage imageNamed:@"Camera_Snapshot_Green"];
     UIButton * cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [cameraButton addTarget:self action:@selector(takeImageButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    //[cameraButton addTarget:self action:@selector(takeImageButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [cameraButton addTarget:self action:@selector(changeToCamera) forControlEvents:UIControlEventTouchUpInside];
+
     cameraButton.bounds = CGRectMake( 0, 0, cameraImage.size.width/1.7, cameraImage.size.height/1.7 );
     [cameraButton setImage:cameraImage forState:UIControlStateNormal];
 
-   // cameraBtn = [[UIBarButtonItem alloc] initWithCustomView:cameraButton];
+    cameraBtn = [[UIBarButtonItem alloc] initWithCustomView:cameraButton];
     // New Change
     
     recordingButton.enabled = NO;
 
-    cameraBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(changeToCamera)];
+//    cameraBtn = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCamera target:self action:@selector(changeToCamera)];
     cameraBtn.enabled=NO;
     
 
-    UIImage *recorderImage = [UIImage imageNamed:@"CameraRecord_Start.png"];
+    UIImage *recorderImage = [UIImage imageNamed:@"Camera_Record_Gray"];
     UIButton *recButton = [UIButton buttonWithType:UIButtonTypeCustom];
    // [recButton addTarget:self action:@selector(recordVideo:) forControlEvents:UIControlEventTouchUpInside];
     // New Change
     [recButton addTarget:self action:@selector(changeToVideo) forControlEvents:UIControlEventTouchUpInside];
 
-    recButton.bounds = CGRectMake( 0, 0, recorderImage.size.width/1.2, recorderImage.size.height/1.2 );
+    recButton.bounds = CGRectMake( 0, 0, recorderImage.size.width/1.7, recorderImage.size.height/1.7 );
     [recButton setImage:recorderImage forState:UIControlStateNormal];
     
     videoRecorderBtn = [[UIBarButtonItem alloc] initWithCustomView:recButton];
@@ -93,8 +97,20 @@ static NSData *_endMarkerData = nil;
     
     self.navigationItem.rightBarButtonItems = @[cameraBtn,videoRecorderBtn];
     
-    [self setUpScrolling];
     
+    [self.view layoutIfNeeded];
+    [interfaceScrollView layoutIfNeeded];
+
+    interfaceScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.view.frame.size.height);
+
+    containerCiew = [[UIView alloc] initWithFrame:interfaceScrollView.frame];
+    interfaceImage = [[UIImageView alloc] initWithFrame:interfaceScrollView.frame];
+    interfaceImage.contentMode = UIViewContentModeScaleAspectFit;
+    
+    [interfaceScrollView addSubview:containerCiew];
+    [containerCiew addSubview:interfaceImage];
+    
+    [self setUpScrolling];
     
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnce:)];
@@ -105,9 +121,11 @@ static NSData *_endMarkerData = nil;
     [self.view addGestureRecognizer:pan];
     
     [self.view bringSubviewToFront:self.bottomButtonView];
-    [recordingButton setImage:[UIImage imageNamed:@"Video_Start"] forState:UIControlStateNormal];
+    [recordingButton setImage:[UIImage imageNamed:@"Camera_NotClicked"] forState:UIControlStateNormal];
 
 }
+
+
 
 
 
@@ -162,9 +180,11 @@ static NSData *_endMarkerData = nil;
 
 
 -(void)playVideo{
-    
 
     NSURL *videoURL= [NSURL URLWithString:[self urlencode:self.cameraURL]];
+//    NSURL *videoURL = [NSURL URLWithString:@"http://trackfield.webcam.oregonstate.edu/axis-cgi/mjpg/video.cgi?resolution=800x600&amp%3bdummy=1333689998337"];
+
+//    NSURL *videoURL = [NSURL URLWithString:@"http://130.157.32.16/axis-cgi/mjpg/video.cgi?resolution=1280x800&amp;dummy=1436826196460"];;
 
     NSLog(@"Video URl IS %@",videoURL);
     
@@ -345,8 +365,6 @@ static NSData *_endMarkerData = nil;
 
     if ([[UIScreen mainScreen] respondsToSelector:@selector(scale)]){
 
-        
-        
         //// For the aspect fit
  
         
@@ -445,9 +463,19 @@ static NSData *_endMarkerData = nil;
 
     [self changeButtonImageForCaptureImage];
 
-    [CustomToast showWithText:@"Snapshot saved successfully"
-                    superView:self.view
-                    bLandScap:NO];
+//    [CustomToast showWithText:@"Snapshot saved successfully"
+//                    superView:interfaceScrollView
+//                    bLandScap:NO];
+    mesageLabel.hidden = NO;
+    mesageLabel.alpha = 1;
+    mesageLabel.text = @"Snapshot saved successfully";
+    
+    [UIView animateWithDuration:2.5 animations:^{
+        
+        mesageLabel.alpha = 0;
+    }];
+
+
 }
 
 
@@ -523,10 +551,29 @@ static NSData *_endMarkerData = nil;
 
 -(void) changeToCamera{
     [recordingButton setImage:[UIImage imageNamed:@"Camera_NotClicked"] forState:UIControlStateNormal];
+    
+    UIButton * button= (UIButton*)cameraBtn.customView;
+    UIImage * recorderImage = [UIImage imageNamed:@"Camera_Snapshot_Green"];
+    [button setImage:recorderImage forState:UIControlStateNormal];
+    
+    UIButton * button1= (UIButton*)videoRecorderBtn.customView;
+    UIImage * recorderImage1 = [UIImage imageNamed:@"Camera_Record_Gray"];
+    [button1 setImage:recorderImage1 forState:UIControlStateNormal];
 }
+
+
+
 
 - (void) changeToVideo{
     [recordingButton setImage:[UIImage imageNamed:@"Video_Start"] forState:UIControlStateNormal];
+    
+    UIButton * button= (UIButton*)cameraBtn.customView;
+    UIImage * recorderImage = [UIImage imageNamed:@"Camera_Snapshot_Gray"];
+    [button setImage:recorderImage forState:UIControlStateNormal];
+    
+    UIButton * button1= (UIButton*)videoRecorderBtn.customView;
+    UIImage * recorderImage1 = [UIImage imageNamed:@"Camera_Record_Green"];
+    [button1 setImage:recorderImage1 forState:UIControlStateNormal];
 }
 
 
@@ -932,7 +979,16 @@ static NSData *_endMarkerData = nil;
                         }
                         else{
                             
-                            [self performSelectorOnMainThread:@selector(showVideoSuccessMessage) withObject:nil waitUntilDone:NO];
+                            mesageLabel.hidden = NO;
+                            mesageLabel.alpha = 1;
+                            mesageLabel.text = @"Video saved successfully";
+                            
+                            [UIView animateWithDuration:2.5 animations:^{
+                                
+                                mesageLabel.alpha = 0;
+                            }];
+                            
+//                            [self performSelectorOnMainThread:@selector(showVideoSuccessMessage) withObject:nil waitUntilDone:NO];
                         }
                     } else
                         
@@ -1178,7 +1234,16 @@ static NSData *_endMarkerData = nil;
              }
            
 
-             [self performSelectorOnMainThread:@selector(showVideoSuccessMessage) withObject:nil waitUntilDone:NO];
+             
+             mesageLabel.hidden = NO;
+             mesageLabel.alpha = 1;
+             mesageLabel.text = @"Video saved successfully";
+             
+             [UIView animateWithDuration:2.5 animations:^{
+                 
+                 mesageLabel.alpha = 0;
+             }];
+//             [self performSelectorOnMainThread:@selector(showVideoSuccessMessage) withObject:nil waitUntilDone:NO];
          });
      }];
 }
@@ -1232,8 +1297,8 @@ static NSData *_endMarkerData = nil;
     [interfaceScrollView layoutIfNeeded];
     interfaceScrollView.delegate=self;
     interfaceScrollView.zoomScale=1.0f;
-    interfaceScrollView.minimumZoomScale=0.25f;
-    interfaceScrollView.maximumZoomScale=8.0f;
+    interfaceScrollView.minimumZoomScale=0.6f;
+    interfaceScrollView.maximumZoomScale=2.0f;
     interfaceScrollView.bounces=YES;
     interfaceScrollView.bouncesZoom=YES;
     interfaceScrollView.clipsToBounds = YES;
@@ -1243,14 +1308,27 @@ static NSData *_endMarkerData = nil;
 
 
 - (IBAction)actionResetButton:(id)sender {
+    
+    [self.view layoutIfNeeded];
+    
     interfaceScrollView.zoomScale=1.0f;
-
-    CGAffineTransform transform = CGAffineTransformMakeRotation(0);
-    interfaceScrollView.transform = transform;
-
+    interfaceScrollView.transform = CGAffineTransformIdentity;
+    interfaceImage.transform = CGAffineTransformIdentity;
+    
+    scaleValue = 1;
+    
     interfaceScrollView.center = CGPointMake(self.view.center.x ,
                                               self.view.center.y );
+    
+    NSLog(@"%f",interfaceScrollView.center.y);
+    NSLog(@"%f",self.view.frame.size.height);
+    NSLog(@"%f",self.view.center.y);
+    NSLog(@"%f",interfaceScrollView.frame.size.height);
+    NSLog(@"%f",containerCiew.frame.size.height);
+    
+    containerCiew.center = interfaceScrollView.center;
     interfaceImage.center = interfaceScrollView.center;
+    interfaceImage.frame = interfaceScrollView.frame;
     
 }
 
@@ -1259,44 +1337,54 @@ static NSData *_endMarkerData = nil;
 
 
 - (IBAction)actionZoomIn:(id)sender {
-    [UIView animateWithDuration:.5 animations:^
-    {
-        scaleValue = scaleValue * 1.2;
-
-        CGAffineTransform transform1 = CGAffineTransformMakeScale(scaleValue, scaleValue);
-
-        CGAffineTransform transform = CGAffineTransformRotate(transform1,  atan2f(interfaceImage.transform.b, interfaceImage.transform.a));
-        
-        interfaceImage.transform = transform;
-    }];
+    if (scaleValue < 2.0) {
+        [UIView animateWithDuration:.5 animations:^
+         {
+             scaleValue = scaleValue * 1.11;
+             
+             CGAffineTransform transform1 = CGAffineTransformMakeScale(scaleValue, scaleValue);
+             
+             CGAffineTransform transform = CGAffineTransformRotate(transform1,  atan2f(containerCiew.transform.b, containerCiew.transform.a));
+             
+             containerCiew.transform = transform1;
+         }];
+    }
 }
 
 
 
 
 - (IBAction)actionZoomOut:(id)sender {
-    
-    [UIView animateWithDuration:.5 animations:^{
-
-        scaleValue = scaleValue * 0.8;
-    
-        CGAffineTransform transform1 = CGAffineTransformMakeScale(scaleValue, scaleValue);
-        
-        CGAffineTransform transform = CGAffineTransformRotate(transform1,  atan2f(interfaceImage.transform.b, interfaceImage.transform.a));
-
-        interfaceImage.transform = transform;
-     }];
+    if (scaleValue > 0.6) {
+        [UIView animateWithDuration:.5 animations:^{
+            scaleValue = scaleValue * 0.9;
+            
+            CGAffineTransform transform1 = CGAffineTransformMakeScale(scaleValue, scaleValue);
+            
+            CGAffineTransform transform = CGAffineTransformRotate(transform1,  atan2f(containerCiew.transform.b, containerCiew.transform.a));
+            
+            containerCiew.transform = transform1;
+        }];
+    }
 }
 
+
+
+
+
+
+
 - (IBAction)actionLeftRtate:(id)sender {
-    
+
     [UIView beginAnimations:nil context:NULL];
     [UIView animateWithDuration:.8 animations:^
      {
         CGAffineTransform transform = CGAffineTransformRotate(interfaceImage.transform, -M_PI_4);
         interfaceImage.transform = transform;
-        }];
+     }];
 }
+
+
 
 
 
@@ -1316,13 +1404,17 @@ static NSData *_endMarkerData = nil;
 
 
 
+
+
 - (IBAction)moveImage:(UIPanGestureRecognizer*)recognizer {
     
     CGPoint translation = [recognizer translationInView:self.view];
-    interfaceImage.center = CGPointMake(interfaceImage.center.x + translation.x,
-                                         interfaceImage.center.y + translation.y);
+    containerCiew.center = CGPointMake(containerCiew.center.x + translation.x,
+                                         containerCiew.center.y + translation.y);
     [recognizer setTranslation:CGPointMake(0, 0) inView:interfaceScrollView];
 }
+
+
 
 
 
@@ -1357,19 +1449,24 @@ static NSData *_endMarkerData = nil;
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-    return interfaceImage;
+    return containerCiew;
 }
+
+
+
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
     // The scroll view has zoomed, so we need to re-center the contents
     [self centerScrollViewContents];
+    
+    scaleValue = scrollView.zoomScale;
 }
 
 
 - (void)centerScrollViewContents {
     // This method centers the scroll view contents also used on did zoom
     CGSize boundsSize = interfaceScrollView.bounds.size;
-    CGRect contentsFrame = interfaceImage.frame;
+    CGRect contentsFrame = containerCiew.frame;
     
     if (contentsFrame.size.width < boundsSize.width) {
         contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
@@ -1383,7 +1480,9 @@ static NSData *_endMarkerData = nil;
         contentsFrame.origin.y = 0.0f;
     }
     
-    interfaceImage.frame = contentsFrame;
+    containerCiew.frame = contentsFrame;
+//    interfaceImage.frame = contentsFrame;
+
 }
 
 
@@ -1435,18 +1534,38 @@ static NSData *_endMarkerData = nil;
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-    if (interfaceScrollView.zoomScale != 1.0f || atan2f(interfaceImage.transform.b, interfaceImage.transform.a) != 0 )
+       
+    [self.view layoutIfNeeded];
+
+    if (interfaceScrollView.zoomScale != 1.0f || atan2f(containerCiew.transform.b, containerCiew.transform.a) != 0 )
     {
         interfaceScrollView.zoomScale=1.0f;
-        
-        CGAffineTransform transform = CGAffineTransformMakeRotation(0);
-        interfaceScrollView.transform = transform;
-        
+
+        interfaceScrollView.transform = CGAffineTransformIdentity;
+        interfaceImage.transform = CGAffineTransformIdentity;
+
+        scaleValue = 1;
+
         interfaceScrollView.center = CGPointMake(self.view.center.x ,
                                                  self.view.center.y );
-        interfaceImage.center = interfaceScrollView.center;
+        containerCiew.center = interfaceScrollView.center;
+        
     }
 
+}
+
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.view layoutIfNeeded];
+        [interfaceScrollView layoutIfNeeded];
+        
+        containerCiew.frame = interfaceScrollView.frame;
+        interfaceImage.frame = interfaceScrollView.frame;
+        interfaceImage.center = interfaceScrollView.center;
+        containerCiew.center = interfaceScrollView.center;
+        [self.view layoutIfNeeded];
+    }];
 }
 
 

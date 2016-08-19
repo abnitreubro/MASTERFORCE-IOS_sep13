@@ -418,8 +418,9 @@ static NSString * const reuseIdentifier = @"FileList";
         
         strPath = [strPath stringByAppendingPathComponent:[picPathArray objectAtIndex:indexPath.row]];
         
-        if ([strPath containsString:@".mov"]||[strPath containsString:@".mp4"]||[strPath containsString:@".rec"]) // take thumbnail for videos // to reduce loading time next time the table view is scrolled.
+        if ([[strPath pathExtension] isEqualToString:@"mov"]||[[strPath pathExtension] isEqualToString:@"mp4"]||[[strPath pathExtension] isEqualToString:@"rec"]) // take thumbnail for videos // to reduce loading time next time the table view is scrolled.
         {
+            
             
             cell.imagePlayButton.hidden=NO;
             if (storeThumbnails.count <= newArray.count && ![indexStore containsObject:indexPath])
@@ -437,7 +438,10 @@ static NSString * const reuseIdentifier = @"FileList";
                 
                 cell.ThumbNailImageView.image=one;
                 NSData* pictureData = UIImageJPEGRepresentation(one, .1); //JPEG conversion
-                
+                if (pictureData == nil) {
+                    
+                    pictureData = [[NSData alloc] init];
+                }
                 
                 [storeThumbnails addObject:pictureData];
                 
@@ -567,7 +571,10 @@ static NSString * const reuseIdentifier = @"FileList";
                 cell.ThumbNailImageView.image=one;
                 NSData* pictureData = UIImageJPEGRepresentation(one, .1); //JPEG conversion
                 
-                
+                if (pictureData == nil) {
+                    
+                    pictureData = [[NSData alloc] init];
+                }
                 [storeThumbnails addObject:pictureData];
                 
             }
@@ -786,14 +793,10 @@ static NSString * const reuseIdentifier = @"FileList";
                 
                 
                 [storeThumbnails removeObject:[thumbnailToDelete objectAtIndex:count]];
+                [indexStore removeLastObject];
                 
-                // [storeThumbnails removeObjectAtIndex:[[indexArrayTodelete objectAtIndex:count] row]];
                 
-                [indexStore removeObject:[indexArrayTodelete objectAtIndex:count]];
-                
-                // NSLog(@"path: %@",itemname);
-                
-                if ([itemname containsString:@".mov"]||[itemname containsString:@".mp4"]||[itemname containsString:@".rec"])
+                if ([[itemname pathExtension] isEqualToString:@"mov"]||[[itemname pathExtension] isEqualToString:@"mp4"]||[[itemname pathExtension] isEqualToString:@"rec"])
                     [m_pRecPathMgt RemovePath:@"OBJ-002864-STBZD" Date:[datesArray objectAtIndex:[[indexArrayTodelete objectAtIndex:count] row]] Path:itemname] ;
                 else
                     [m_pPicPathMgt RemovePicPath:@"OBJ-002864-STBZD" PicDate:[datesArray objectAtIndex:[[indexArrayTodelete objectAtIndex:count] row]] PicPath:itemname] ;
@@ -802,10 +805,30 @@ static NSString * const reuseIdentifier = @"FileList";
                 [picPathArray removeObject:itemname];
                 [newArray removeLastObject];
                 [animatedIndexPaths removeLastObject];
+                
             }
-            [self.FileListCollectionView deleteItemsAtIndexPaths:indexArrayTodelete];
+            
+            
+            [storeThumbnails removeAllObjects];
+            [indexStore removeAllObjects];
+            [thumbnailToDelete removeAllObjects];
+            
+            
+            NSArray * tempArray = [newArray copy];
+            [newArray removeAllObjects];
+            [self.FileListCollectionView reloadData];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [newArray addObjectsFromArray:tempArray];
+                [self.FileListCollectionView layoutIfNeeded];
+                [self.FileListCollectionView reloadData];
+            }];
             
             [self editDoneButonAction:nil];
+            
+            if (picPathArray.count == 0) {
+                [editButton setEnabled:NO];
+            }
             
         }
         else
@@ -845,10 +868,29 @@ static NSString * const reuseIdentifier = @"FileList";
                     return;
                 }
             }
-            [self.FileListCollectionView deleteItemsAtIndexPaths:indexArrayTodelete];
+            
+            [storeThumbnails removeAllObjects];
+            [indexStore removeAllObjects];
+            [thumbnailToDelete removeAllObjects];
+
+            NSArray * tempArray = [newArray copy];
+            [newArray removeAllObjects];
+            [self.FileListCollectionView reloadData];
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [newArray addObjectsFromArray:tempArray];
+                [self.FileListCollectionView layoutIfNeeded];
+                [self.FileListCollectionView reloadData];
+            }];
             
             [self editDoneButonAction:nil];
+            
+            if (allContentInFolder.count == 0) {
+                [editButton setEnabled:NO];
+            }
+
         }
+        
     }
 }
 

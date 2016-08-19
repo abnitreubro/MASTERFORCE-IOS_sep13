@@ -40,7 +40,11 @@
     
     self.view.backgroundColor = [UIColor blackColor];
     
-    [self setScrollView];
+    
+    if (IS_OS_8_OR_LATER) {
+        [self setScrollView];
+    }
+
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideShowNavigation)];
     tap.numberOfTapsRequired = 1;
@@ -80,7 +84,11 @@
     
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     
-    activityViewController.popoverPresentationController.barButtonItem = shareBtn;
+    if (IS_OS_8_OR_LATER)
+    {
+        activityViewController.popoverPresentationController.barButtonItem = shareBtn;
+    }
+
     
     [self presentViewController: activityViewController animated:YES completion:nil];
 }

@@ -16,4 +16,6 @@
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property(nonatomic,strong)NSFetchedResultsController*fetchedResultsController;
 
+
+@property (nonatomic,strong) PlayViewController *playViewController;
 @end

@@ -98,7 +98,7 @@
     [imageContainingView.layer addSublayer:playerLayer];
 
     [_player seekToTime:kCMTimeZero];
-    [_player play];
+//    [_player play];
     
     
     
@@ -119,7 +119,7 @@
         labelStartTime.text = [weakself getStringFromCMTime:weakself.player.currentTime];
     }];
     
-    isPlaying = YES;
+    isPlaying = NO;
     
     // for knowing when finished
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerFinishedPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
@@ -208,8 +208,11 @@
     
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     
-    activityViewController.popoverPresentationController.barButtonItem = shareBtn;
-    
+    if (IS_OS_8_OR_LATER)
+    {
+        activityViewController.popoverPresentationController.barButtonItem = shareBtn;
+    }
+
     [self presentViewController: activityViewController animated:YES completion:nil];
 }
 

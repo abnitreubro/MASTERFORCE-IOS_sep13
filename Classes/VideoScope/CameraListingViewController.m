@@ -22,6 +22,9 @@
 
 @implementation CameraListingViewController
 
+@synthesize playViewController;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -32,17 +35,31 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO];
+   
+    
     sSIDName=nil;
     NSDictionary *ssidDic = [NSDictionary new];
     ssidDic =[self fetchSSIDInfo];
     sSIDName =[ssidDic objectForKey:@"SSID"];
+    
     if (sSIDName == nil || [sSIDName isKindOfClass:[NSNull class]] || [sSIDName isEqualToString:@""]) {
         NSLog(@"No Wifi Connected");
     }
     else
         NSLog(@"The Connected WIFI Device Detail is %@",ssidDic);
     
-    [self.tableView reloadData];
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+       
+        [self.tableView layoutIfNeeded];
+        [self.tableView reloadData];
+        
+    }];
+    
+    
+    if (playViewController != nil) {
+        [playViewController StopPlay:1];
+        playViewController = nil;
+    }
 }
 
 
@@ -103,7 +120,6 @@
         }
         cell.userInteractionEnabled=NO;
         cell.cameraName.enabled=NO;
-        
     }
     else{
         
@@ -189,7 +205,7 @@
         // P2P Camera settingon selection
         AppDelegate *appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
         
-        PlayViewController *playViewController = appDelegate.playViewController;
+        playViewController = [[PlayViewController alloc] init];
         
         playViewController.m_pPPPPChannelMgt = appDelegate.m_pPPPPChannelMgt;
         playViewController.strDID = @"OBJ-002864-STBZD";//OBJ-002864-STBZD/OBJ-003816-JVTGK
@@ -197,7 +213,8 @@
         playViewController.strPwd=@"";
         playViewController.cameraName = @"";
         playViewController.m_nP2PMode =1;// [nPPPPMode intValue];
-        
+//        [appDelegate switchPlayView:playViewController];
+
         playViewController.m_pPicPathMgt = appDelegate.m_pPicPathMgt;
         playViewController.m_pRecPathMgt = appDelegate.m_pRecPathMgt;
         playViewController.PicNotifyDelegate = appDelegate.picViewController;

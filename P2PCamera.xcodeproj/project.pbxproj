@@ -98,7 +98,7 @@
 		1917D2171CBBA6DF00E84B1D /* ShowImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1917D1CC1CBBA6DF00E84B1D /* ShowImageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		1917D21F1CBBB67B00E84B1D /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1917D21E1CBBB67B00E84B1D /* AssetsLibrary.framework */; };
 		191D843C1CC49CDB0004014D /* MyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D843B1CC49CDB0004014D /* MyHeaderView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		191D84D21CC60B370004014D /* CameraRecord_Start.png in Resources */ = {isa = PBXBuildFile; fileRef = 191D84D11CC60B360004014D /* CameraRecord_Start.png */; settings = {ASSET_TAGS = (); }; };
+		191D84D21CC60B370004014D /* Camera_Record_Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 191D84D11CC60B360004014D /* Camera_Record_Gray.png */; settings = {ASSET_TAGS = (); }; };
 		191D85261CC774880004014D /* VideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 191D85251CC774880004014D /* VideoPlayer.m */; settings = {ASSET_TAGS = (); }; };
 		19707DE01CCF30A100919BB3 /* CameraPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 19707DDF1CCF30A100919BB3 /* CameraPreviewViewController.m */; settings = {ASSET_TAGS = (); }; };
 		19707E4C1CD09A4F00919BB3 /* VKVideoPlayer_pause_big@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 19707E4A1CD09A4F00919BB3 /* VKVideoPlayer_pause_big@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -333,7 +333,7 @@
 		1917D21E1CBBB67B00E84B1D /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		191D843B1CC49CDB0004014D /* MyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHeaderView.m; sourceTree = "<group>"; };
 		191D843D1CC49CF80004014D /* MyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHeaderView.h; sourceTree = "<group>"; };
-		191D84D11CC60B360004014D /* CameraRecord_Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraRecord_Start.png; sourceTree = "<group>"; };
+		191D84D11CC60B360004014D /* Camera_Record_Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Camera_Record_Gray.png; sourceTree = "<group>"; };
 		191D85241CC774880004014D /* VideoPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayer.h; sourceTree = "<group>"; };
 		191D85251CC774880004014D /* VideoPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayer.m; sourceTree = "<group>"; };
 		19707DDE1CCF30A100919BB3 /* CameraPreviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraPreviewViewController.h; sourceTree = "<group>"; };
@@ -774,7 +774,7 @@
 				19707E4F1CD09FEE00919BB3 /* playbottone.png */,
 				19707E961CD8BEED00919BB3 /* MX1021-200.png */,
 				19707E941CD8BEDC00919BB3 /* MX1020-200.png */,
-				191D84D11CC60B360004014D /* CameraRecord_Start.png */,
+				191D84D11CC60B360004014D /* Camera_Record_Gray.png */,
 				1917D18A1CBBA6DE00E84B1D /* disSelect.png */,
 				1917D18B1CBBA6DE00E84B1D /* error.png */,
 				1917D18C1CBBA6DE00E84B1D /* error@2x.png */,
@@ -1036,7 +1036,7 @@
 				19159BA11D2A1A8A009C2041 /* MASTERFORCE ICON 1024 x 1024.PNG in Resources */,
 				1874D80F1D3E1EBB00FAD3D2 /* Video_Start.png in Resources */,
 				1917D2001CBBA6DF00E84B1D /* wifiCamera@2x.png in Resources */,
-				191D84D21CC60B370004014D /* CameraRecord_Start.png in Resources */,
+				191D84D21CC60B370004014D /* Camera_Record_Gray.png in Resources */,
 				19707E8D1CD8672000919BB3 /* minus 1.png in Resources */,
 				1917D2021CBBA6DF00E84B1D /* wifiCamera@3x.png in Resources */,
 				1917D1E91CBBA6DF00E84B1D /* error@2x.png in Resources */,
