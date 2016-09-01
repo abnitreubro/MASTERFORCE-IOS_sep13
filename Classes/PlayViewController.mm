@@ -1313,6 +1313,13 @@
         
         isProcessing=YES;
         
+        [recordingTimer invalidate];
+        recordingTimer=nil;
+        [autometicStopTimer invalidate];
+        autometicStopTimer=nil;
+        self.labelRecording.hidden=YES;
+
+        
         if(numberOfScreenshots.count > 0)
         {
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -1323,11 +1330,6 @@
             
         }
         
-        [recordingTimer invalidate];
-        recordingTimer=nil;
-        [autometicStopTimer invalidate];
-        autometicStopTimer=nil;
-        self.labelRecording.hidden=YES;
         // Working For Audio Recording For Merging with Video
         
         

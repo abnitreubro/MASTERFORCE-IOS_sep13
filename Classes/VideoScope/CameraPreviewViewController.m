@@ -664,6 +664,14 @@ static NSData *_endMarkerData = nil;
         
         isProcessing=YES;
         
+        [recordingTimer invalidate];
+        recordingTimer=nil;
+        [autometicStopTimer invalidate];
+        autometicStopTimer=nil;
+        self.viewRecordingTime.hidden=YES;
+        // Working For Audio Recording For Merging with Video
+
+        
         //[self createWriter];
         if (numberOfScreenshots.count > 0)
         {
@@ -673,16 +681,6 @@ static NSData *_endMarkerData = nil;
 
             [NSThread detachNewThreadSelector:@selector(createWriter) toTarget:self withObject:nil];
         }
-        
-
-        
-        [recordingTimer invalidate];
-        recordingTimer=nil;
-        [autometicStopTimer invalidate];
-        autometicStopTimer=nil;
-        self.viewRecordingTime.hidden=YES;
-        // Working For Audio Recording For Merging with Video
-
 
     }
     else{
